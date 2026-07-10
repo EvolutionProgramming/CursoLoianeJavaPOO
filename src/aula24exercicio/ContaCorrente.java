@@ -1,4 +1,4 @@
-package exerciciosaula24;
+package aula24exercicio;
 
 public class ContaCorrente {
     String nomeProprietario;

@@ -41,4 +41,4 @@ Para manter o projeto organizado e facilitar a navegação pelo código, a pasta
 
 1. Clone o repositório em sua máquina:
    ```bash
-   git clone https://github.com/SEU-USUARIO/NOME-DO-REPOSITORIO.git
+   git clone https://github.com/EvolutionProgramming/CursoLoianeJavaPOO.git

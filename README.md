@@ -29,10 +29,11 @@ Para manter o projeto organizado e facilitar a navegação pelo código, a pasta
 ## 🎯 Próximos Passos & Checklist de Estudos
 
 - [x] Fundamentos da Linguagem (Variáveis, Operadores, Estruturas Condicionais/Repetição)
+- [x] Vetores e Matrizes (Arrays básicos)
 - [x] Orientação a Objetos (Classes, Métodos, Construtores)
 - [ ] POO Avançado (Herança, Polimorfismo, Interfaces, Abstração)
 - [ ] Tratamento de Erros e Exceções (`try-catch`)
-- [ ] Estruturas de Dados Básicas (Arrays, Matrizes)
+- [ ] Java Collections (ArrayList, Sets, Maps e API de Streams)
 
 ---
 

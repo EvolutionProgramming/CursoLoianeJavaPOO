@@ -8,7 +8,7 @@ public class Lampadav2Teste {
         Lampadav2 lampada = new Lampadav2();
 
         int comando;
-        boolean validador = true;
+        boolean validador;
 
         while (validador) {
             System.out.println("Digite 1 para Ligar ou 2 para Desligar (Digite 0 para sair)");

@@ -9,11 +9,7 @@ public class Lampadav2 {
     int potencia;
 
     boolean validadorComando(int comando) {
-        if (comando == 0) {
-            return false;
-        } else {
-            return true;
-        }
+        return comando != 0;
     }
 
     void informarComandoInvalido() {

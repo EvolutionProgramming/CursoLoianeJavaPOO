@@ -18,21 +18,26 @@ public class AlunoTeste {
         int comando = sc.nextInt();
         sc.nextLine();
 
-        while (aluno1.validarComando(comando)) {
+        while (validarComando(comando)) {
 
             System.out.println("-----------------------------------------------------");
             System.out.println("Digite o nome do aluno:");
             String nomeInformado = sc.nextLine();
             System.out.println("-----------------------------------------------------");
-            System.out.println("Digite o número de matrículo do aluno:");
+            System.out.println("Digite o número de matrícula do aluno:");
             int matriculaInformada = sc.nextInt();
             sc.nextLine();
 
-            if (aluno1.validarNomeMatricula(nomeInformado, matriculaInformada)) {
+            if (aluno1.conferirMeusDados(nomeInformado, matriculaInformada)) {
                 for (int cont = 0; cont < aluno1.disciplinas.length; cont++) {
                     System.out.println("-----------------------------------------------------");
                     System.out.println("Nota da disciplina de " + aluno1.disciplinas[cont] + ": " + aluno1.notas[cont]);
-                    aluno1.validarAprovacao(aluno1.notas[cont]);
+                    boolean resultado = aluno1.validarAprovacao(aluno1.notas[cont]);
+                    if (resultado) {
+                        System.out.println("APROVADO!!!");
+                    } else {
+                        System.out.println("REPROVADO!!!");
+                    }
                 }
                 comando = 0;
             } else {
@@ -43,5 +48,9 @@ public class AlunoTeste {
         }
         sc.close();
 
+    }
+
+    static boolean validarComando(int comando) {
+        return comando == 1;
     }
 }

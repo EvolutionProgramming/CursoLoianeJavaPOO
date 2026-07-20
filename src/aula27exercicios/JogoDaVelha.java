@@ -2,37 +2,28 @@ package aula27exercicios;
 
 public class JogoDaVelha {
     String jogador1, jogador2;
-    char simboloX = 'X', simboloO = 'O';
-    char[][] tabuleiro = {
+    private char simboloX = 'X', simboloO = 'O';
+    private char[][] tabuleiro = {
             {' ', ' ', ' '},
             {' ', ' ', ' '},
             {' ', ' ', ' '}
     };
     int turno;
 
-    void mostrarTabuleiro() {
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                System.out.print(" " + tabuleiro[i][j] + " ");
-                if (j < 2) System.out.print("|");
-            }
-            System.out.println();
-            if (i < 2) System.out.println("-----------");
-        }
+    public char[][] getTabuleiro() {
+        return this.tabuleiro;
     }
 
-    void atualizaTabuleiro(int fileira, int coluna) {
-        tabuleiro[fileira][coluna] = atualizaSimbolo(this.turno);
+    void atualizarTabuleiro(int fileira, int coluna) {
+        tabuleiro[fileira][coluna] = atualizarSimbolo(this.turno);
     }
 
-    void limparConsole() {
-        for (int i = 0; i < 50; i++) {
-            System.out.println();
-        }
+    char atualizarSimbolo(int turno) {
+        return (turno % 2 == 0) ? simboloX : simboloO;
     }
 
-    String validaVez(int vez) {
-        return (vez % 2 == 0) ? this.jogador1 : this.jogador2;
+    String validarVez(int turno) {
+        return (turno % 2 == 0) ? this.jogador1 : this.jogador2;
     }
 
     String verificarEstadoDoJogo() {
@@ -73,21 +64,11 @@ public class JogoDaVelha {
         return "empate";
     }
 
-    char atualizaSimbolo(int turno) {
-        return (turno % 2 == 0) ? simboloX : simboloO;
-    }
-
-    boolean validaPosicao(int fileira, int coluna) {
+    boolean validarPosicao(int fileira, int coluna) {
         if ((fileira >= 0 && fileira < 3) && (coluna >= 0 && coluna < 3)) {
-            if (Character.valueOf(tabuleiro[fileira][coluna]).equals(' ')) {
-                return true;
-            }
+            return Character.valueOf(tabuleiro[fileira][coluna]).equals(' ');
         }
 
         return false;
-    }
-
-    boolean validaComando(int comando) {
-        return comando == 1;
     }
 }

@@ -15,49 +15,98 @@ public class ContaCorrenteTeste {
 
         while (comando != 0) {
 
-            conta1.exibirOpcoes();
+            exibirOpcoes();
             comando = sc.nextInt();
-            conta1.limparConsole();
+            limparConsole();
+            // essa variável é para validar se o saque ou deposito foram permitidos no switch abaixo
+            boolean sucesso;
 
             switch (comando) {
                 case 1:
-                    conta1.consultarSaldo();
+                    consultarSaldo(conta1.saldo);
                     break;
                 case 2:
                     System.out.println("Digite o valor do saque:");
                     double valorSaque = sc.nextDouble();
-                    conta1.limparConsole();
-                    if ((valorSaque > 0) && (valorSaque <= conta1.saldo)) {
+                    limparConsole();
+
+                    sucesso = conta1.realizarSaque(valorSaque);
+
+                    if (sucesso) {
                         System.out.println("---------------------------------");
+                        System.out.println("SAQUE REALIZADO COM SUCESSO!");
                         System.out.println("VALOR DO SAQUE: " + valorSaque + "R$");
-                        conta1.saldo = conta1.realizarSaque(conta1.saldo, valorSaque);
-                        System.out.println("VALOR APÓS O SAQUE: " + conta1.saldo + "R$");
-                        break;
-                    } else if ((valorSaque <= 0) || (valorSaque > conta1.saldo)) {
-                        System.out.println("Valor indisponível, tente outra vez!");
-                        continue;
+                        System.out.println("NOVO SALDO: " + conta1.saldo + "R$");
+                    } else {
+                        System.out.println("Não foi possível realizar o saque. Valor indisponível ou inválido!");
                     }
+                    break;
                 case 3:
                     System.out.println("Digite o valor do depósito:");
                     double valorDeposito = sc.nextDouble();
-                    conta1.limparConsole();
-                    System.out.println("---------------------------------");
-                    System.out.println("VALOR DO DEPÓSITO: " + valorDeposito + "R$");
-                    conta1.saldo = conta1.realizarDeposito(conta1.saldo, valorDeposito);
-                    System.out.println("VALOR APÓS O DEPÓSITO: " + conta1.saldo + "R$");
+                    limparConsole();
+
+                    sucesso = conta1.realizarDeposito(valorDeposito);
+                    if (sucesso) {
+                        System.out.println("---------------------------------");
+                        System.out.println("VALOR DO DEPÓSITO: " + valorDeposito + "R$");
+                        System.out.println("VALOR APÓS O DEPÓSITO: " + conta1.saldo + "R$");
+                    } else {
+                        System.out.println("Não foi possível realizar o depósito. Valor inválido!");
+                    }
                     break;
                 case 4:
-                    conta1.verificarChequeEspecial();
+                    verificarChequeEspecial(conta1.contaEspecial);
                     break;
                 case 0:
-                    conta1.finalizarSistema();
+                    finalizarSistema();
                     break;
                 default:
-                    conta1.informarComandoInvalido();
+                    informarComandoInvalido();
                     continue;
 
             }
         }
         sc.close();
+    }
+
+    static void exibirOpcoes() {
+        System.out.println("---------------------------------");
+        System.out.println("Escolha uma opção para prosseguir:");
+        System.out.println();
+        System.out.println("Digite 1 para consultar saldo");
+        System.out.println("Digite 2 para realizar saque");
+        System.out.println("Digite 3 para realizar deposito");
+        System.out.println("Digite 4 para verificar cheque especial");
+        System.out.println("Digite 0 para sair");
+    }
+
+    static void consultarSaldo(double saldo) {
+        System.out.println("SEU SALDO É DE: " + saldo + "R$");
+    }
+
+    static void verificarChequeEspecial(boolean chequeEspecial) {
+        if (chequeEspecial) {
+            System.out.println("SUA CONTA É DO TIPO ESPECIAL.");
+        } else {
+            System.out.println("SUA CONTA NÃO É DO TIPO ESPECIAL.");
+        }
+    }
+
+    static void finalizarSistema() {
+        System.out.println("SISTEMA FINALIZANDO...");
+        System.exit(0);
+    }
+
+    static void informarComandoInvalido() {
+        System.out.println("DIGITE UM COMANDO VÁLIDO!:");
+        System.out.println();
+    }
+
+    static void limparConsole() {
+        // Imprime 50 linhas em branco
+        for (int i = 0; i < 50; i++) {
+            System.out.println();
+        }
     }
 }

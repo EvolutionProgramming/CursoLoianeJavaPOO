@@ -22,21 +22,21 @@ public class Carrov6 {
     }
 
     void exibirMarcaModelo() {
-        System.out.println("Carro " + marca + " " + modelo);
+        System.out.println("Carro " + this.marca + " " + this.modelo);
     }
 
     void exibirNumPassageiros() {
-        System.out.println("Suporta " + numPassageiros + " pessoas");
+        System.out.println("Suporta " + this.numPassageiros + " pessoas");
     }
 
 
     double obterAutonomia() {
-        return capCombustivel * consumoCombustivel;
+        return this.capCombustivel * this.consumoCombustivel;
     }
 
     double calcularCombustivel(double km) {
 
-        double qtdCombustivel = km / consumoCombustivel;
+        double qtdCombustivel = km / this.consumoCombustivel;
 
         return qtdCombustivel;
 

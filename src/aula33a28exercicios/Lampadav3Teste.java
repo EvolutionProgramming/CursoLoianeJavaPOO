@@ -25,11 +25,11 @@ public class Lampadav3Teste {
         sc.close();
     }
 
-    static boolean validadorComando(int comando) {
+    private static boolean validadorComando(int comando) {
         return comando > 0 && comando < 3;
     }
 
-    static void exibirResultadoComando(boolean validador, int comando, Lampadav3 lampada) {
+    private static void exibirResultadoComando(boolean validador, int comando, Lampadav3 lampada) {
         if (validador) {
             if (comando == 1 && lampada.isEstado()) {
                 System.out.println("------------------------------");

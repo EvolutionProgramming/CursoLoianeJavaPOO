@@ -9,13 +9,13 @@ public class Lampadav3 {
     private int potencia;
     private boolean estado;
 
-    Lampadav3(){
-        setMarca("Elgin");
-        setTecnologia("LED Smart Wi-Fi");
-        setCor("RGB");
-        setPreco(45.00);
-        setTensao(110);
-        setPotencia(10);
+    public Lampadav3(){
+        this.marca = "Elgin";
+        this.tecnologia = "LED Smart Wi-Fi";
+        this.cor = "RGB";
+        this.preco = 45.00;
+        this.tensao = 110;
+        this.potencia = 10;
     }
 
     public void ligarLampada() {

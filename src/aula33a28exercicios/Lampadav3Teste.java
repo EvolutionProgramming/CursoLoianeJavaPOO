@@ -61,7 +61,7 @@ public class Lampadav3Teste {
         }
     }
 
-    static void exibirAtributosLampada(Lampadav3 lampada) {
+    private static void exibirAtributosLampada(Lampadav3 lampada) {
         System.out.println("INFORMAÇÕES DA LAMPADA");
         System.out.println("------------------------------");
         System.out.println("Marca: "+lampada.getMarca());

@@ -14,21 +14,47 @@ public class ContaCorrentev2 {
     }
 
     public boolean realizarSaque(double valorSaque) {
-        if (valorSaque <= 0) {
+        if (valorSaque <= 0 || valorSaque > (this.saldo + this.limite)) {
             return false;
-        } else if (valorSaque <= this.saldo) {
-            this.saldo -= valorSaque;
-            return true;
         }
-        return false;
+
+        if (valorSaque <= this.saldo) {
+            // operação normal
+            this.saldo -= valorSaque;
+        } else {
+            // se o o saldo não cobre, gasta o saldo e o usa o restante do limite
+            double restante = valorSaque - this.saldo;
+            this.saldo = 0;
+            this.limite -= restante;
+        }
+
+        return true;
     }
 
     public boolean realizarDeposito(double valorDeposito) {
-        if (valorDeposito > 0) {
-            this.saldo += valorDeposito;
-            return true;
+        if (valorDeposito <= 0) {
+            return false;
         }
-        return false;
+
+        double limiteMaximo = 12000.0; // Teto do limite contratado
+
+        if (this.limite < limiteMaximo) {
+            double limiteGasto = limiteMaximo - this.limite;
+
+            if (valorDeposito <= limiteGasto) {
+
+                this.limite += valorDeposito;
+            } else {
+
+                this.limite = limiteMaximo;
+                this.saldo += (valorDeposito - limiteGasto);
+            }
+        } else {
+            // Se o limite já estiver cheio, o depósito vai direto para o saldo
+            this.saldo += valorDeposito;
+        }
+
+        return true;
     }
 
     public int getId() {

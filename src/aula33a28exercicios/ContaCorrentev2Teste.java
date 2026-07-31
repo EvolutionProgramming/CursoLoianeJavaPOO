@@ -51,6 +51,9 @@ public class ContaCorrentev2Teste {
                 case 4:
                     verificarChequeEspecial(conta1);
                     break;
+                case 5:
+                    consultarLimite(conta1);
+                    break;
                 case 0:
                     finalizarSistema();
                     break;
@@ -70,6 +73,7 @@ public class ContaCorrentev2Teste {
         System.out.println("Digite 2 para realizar saque");
         System.out.println("Digite 3 para realizar deposito");
         System.out.println("Digite 4 para verificar cheque especial");
+        System.out.println("Digite 5 para consultar o limite");
         System.out.println("Digite 0 para sair");
     }
 
@@ -91,6 +95,10 @@ public class ContaCorrentev2Teste {
 
     private static void consultarSaldo(ContaCorrentev2 conta) {
         System.out.println("SEU SALDO É DE: " + conta.getSaldo() + "R$");
+    }
+
+    private static void consultarLimite(ContaCorrentev2 conta) {
+        System.out.println("SEU LIMITE É DE: " + conta.getLimite());
     }
 
     private static void verificarChequeEspecial(ContaCorrentev2 conta) {

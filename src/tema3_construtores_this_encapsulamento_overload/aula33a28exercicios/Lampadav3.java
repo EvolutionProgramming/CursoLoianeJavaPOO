@@ -19,11 +19,11 @@ public class Lampadav3 {
     }
 
     public void ligarLampada() {
-        estado = true;
+        setEstado(true);
     }
 
     public void desligarLampada() {
-        estado = false;
+        setEstado(false);
     }
 
     public String getMarca() {

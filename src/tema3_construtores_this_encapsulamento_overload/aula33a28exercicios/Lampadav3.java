@@ -38,40 +38,20 @@ public class Lampadav3 {
         return tecnologia;
     }
 
-    public void setTecnologia(String tecnologia) {
-        this.tecnologia = tecnologia;
-    }
-
     public String getCor() {
         return cor;
-    }
-
-    public void setCor(String cor) {
-        this.cor = cor;
     }
 
     public double getPreco() {
         return preco;
     }
 
-    public void setPreco(double preco) {
-        this.preco = preco;
-    }
-
     public int getTensao() {
         return tensao;
     }
 
-    public void setTensao(int tensao) {
-        this.tensao = tensao;
-    }
-
     public int getPotencia() {
         return potencia;
-    }
-
-    public void setPotencia(int potencia) {
-        this.potencia = potencia;
     }
 
     public boolean isEstado() {

@@ -31,30 +31,40 @@ public class Lampadav3Teste {
 
     private static void exibirResultadoComando(boolean validador, int comando, Lampadav3 lampada) {
         if (validador) {
-            if (comando == 1 && lampada.isEstado()) {
-                System.out.println("------------------------------");
-                System.out.println("Lampada já está ligada!!!");
-                System.out.println("------------------------------");
-                System.out.println();
-            } else if (comando == 2 && !lampada.isEstado()) {
-                System.out.println("------------------------------");
-                System.out.println("Lampada já está desligada!!!");
-                System.out.println("------------------------------");
-                System.out.println();
 
-            } else if (comando == 1) {
-                System.out.println("------------------------------");
-                System.out.println("Você ligou a lâmpada!");
-                System.out.println("------------------------------");
-                System.out.println();
-                lampada.ligarLampada();
+            switch (comando) {
 
-            } else if (comando == 2) {
-                System.out.println("------------------------------");
-                System.out.println("Você desligou a lâmpada!");
-                System.out.println("------------------------------");
-                System.out.println();
-                lampada.desligarLampada();
+                case 1:
+                    if (lampada.isEstado()) {
+                        System.out.println("------------------------------");
+                        System.out.println("Lampada já está ligada!!!");
+                        System.out.println("------------------------------");
+                        System.out.println();
+                    } else {
+                        System.out.println("------------------------------");
+                        System.out.println("Você ligou a lâmpada!");
+                        System.out.println("------------------------------");
+                        System.out.println();
+                        lampada.ligarLampada();
+                    }
+                    break;
+                case 2:
+                    if (!lampada.isEstado()) {
+                        System.out.println("------------------------------");
+                        System.out.println("Lampada já está desligada!!!");
+                        System.out.println("------------------------------");
+                        System.out.println();
+
+                    } else {
+                        System.out.println("------------------------------");
+                        System.out.println("Você desligou a lâmpada!");
+                        System.out.println("------------------------------");
+                        System.out.println();
+                        lampada.desligarLampada();
+
+                    }
+                    break;
+
             }
         } else {
             System.out.println("Finalizando sistema...");
@@ -64,12 +74,12 @@ public class Lampadav3Teste {
     private static void exibirAtributosLampada(Lampadav3 lampada) {
         System.out.println("INFORMAÇÕES DA LAMPADA");
         System.out.println("------------------------------");
-        System.out.println("Marca: "+lampada.getMarca());
-        System.out.println("Tecnologia: "+lampada.getTecnologia());
-        System.out.println("Cor: "+lampada.getCor());
-        System.out.println("Preço: "+lampada.getPreco());
-        System.out.println("Tensão: "+lampada.getTensao());
-        System.out.println("Potência: "+lampada.getPotencia());
+        System.out.println("Marca: " + lampada.getMarca());
+        System.out.println("Tecnologia: " + lampada.getTecnologia());
+        System.out.println("Cor: " + lampada.getCor());
+        System.out.println("Preço: " + lampada.getPreco());
+        System.out.println("Tensão: " + lampada.getTensao());
+        System.out.println("Potência: " + lampada.getPotencia());
 
     }
 }

@@ -4,7 +4,7 @@ public class Calculadora {
     private static double n1, n2;
     private static double resultado;
 
-    public static double processarOpcao(int opcao, int n1, int n2) {
+    public static double processarOpcao(int opcao, double n1, double n2) {
         switch (opcao) {
             case 1:
                 return Calculadora.somar(n1, n2);
@@ -21,9 +21,9 @@ public class Calculadora {
         }
     }
 
-    public static double processarFatorial(int number) {
+    public static double processarFatorial(double number) {
 
-        long fatorial = 1;
+        double fatorial = 1;
 
         for (int i = 1; i <= number; i++) {
             fatorial *= i;

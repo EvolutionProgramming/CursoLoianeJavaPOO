@@ -15,21 +15,21 @@ public class CalculadoraTeste {
                 mostrarMenuOperacoes();
                 opcao = Integer.parseInt(sc.nextLine());
 
-                int n1, n2;
+                double n1, n2;
                 if (opcao != 6) {
                     System.out.println("Digite o primeiro número:");
-                    n1 = Integer.parseInt(sc.nextLine());
+                    n1 = Double.parseDouble(sc.nextLine());
                     Calculadora.setN1(n1);
                     System.out.println("Digite o segundo número:");
-                    n2 = Integer.parseInt(sc.nextLine());
+                    n2 = Double.parseDouble(sc.nextLine());
                     Calculadora.setN2(n2);
 
                     espacarTexto();
                     Calculadora.setResultado(Calculadora.processarOpcao(opcao, n1, n2));
                 } else {
-                    int num;
+                    double num;
                     System.out.println("Digite o número da operação fatorial");
-                    num = Integer.parseInt(sc.nextLine());
+                    num = Double.parseDouble(sc.nextLine());
                     Calculadora.setResultado(Calculadora.processarFatorial(num));
                 }
 

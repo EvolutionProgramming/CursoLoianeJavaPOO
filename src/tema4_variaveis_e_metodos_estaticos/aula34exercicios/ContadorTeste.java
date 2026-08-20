@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class ContadorTeste {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
         int comando;
         do {
             System.out.println("Digite 1 para incrementar");

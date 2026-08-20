@@ -11,21 +11,29 @@ public class CalculadoraTeste {
         do {
 
             try {
-                int n1, n2;
-                System.out.println("Digite o primeiro número:");
-                n1 = Integer.parseInt(sc.nextLine());
-                Calculadora.setN1(n1);
-                System.out.println("Digite o segundo número:");
-                n2 = Integer.parseInt(sc.nextLine());
-                Calculadora.setN2(n2);
-
                 espacarTexto();
                 mostrarMenuOperacoes();
                 opcao = Integer.parseInt(sc.nextLine());
-                espacarTexto();
-                Calculadora.setResultado(processarOpcao(opcao, n1, n2));;
 
-                if (opcao > 0 && opcao <= 5) {
+                int n1, n2;
+                if (opcao != 6) {
+                    System.out.println("Digite o primeiro número:");
+                    n1 = Integer.parseInt(sc.nextLine());
+                    Calculadora.setN1(n1);
+                    System.out.println("Digite o segundo número:");
+                    n2 = Integer.parseInt(sc.nextLine());
+                    Calculadora.setN2(n2);
+
+                    espacarTexto();
+                    Calculadora.setResultado(Calculadora.processarOpcao(opcao, n1, n2));
+                } else {
+                    int num;
+                    System.out.println("Digite o número da operação fatorial");
+                    num = Integer.parseInt(sc.nextLine());
+                    Calculadora.setResultado(Calculadora.processarFatorial(num));
+                }
+
+                if (opcao > 0 && opcao <= 6) {
                     System.out.println("O resultado é: " + Calculadora.getResultado());
                 }
 
@@ -46,24 +54,8 @@ public class CalculadoraTeste {
         System.out.println("Digite 3 para multiplicar");
         System.out.println("Digite 4 para dividir");
         System.out.println("Digite 5 para elevar potência");
+        System.out.println("Digite 6 para calcular fatorial");
         System.out.println("---------------------------------");
-    }
-
-    public static double processarOpcao(int opcao, int n1, int n2) {
-        switch (opcao) {
-            case 1:
-                return Calculadora.somar(n1, n2);
-            case 2:
-                return Calculadora.subtrair(n1, n2);
-            case 3:
-                return Calculadora.multiplicar(n1, n2);
-            case 4:
-                return Calculadora.divisar(n1, n2);
-            case 5:
-                return Calculadora.elevarPotencia(n1, n2);
-            default:
-                return 0;
-        }
     }
 
     public static void espacarTexto() {

@@ -16,7 +16,7 @@ public class CalculadoraTeste {
                 opcao = Integer.parseInt(sc.nextLine());
 
                 double n1, n2;
-                if (opcao != 6) {
+                if (opcao > 0 && opcao < 6) {
                     System.out.println("Digite o primeiro número:");
                     n1 = Double.parseDouble(sc.nextLine());
                     Calculadora.setN1(n1);
@@ -26,21 +26,28 @@ public class CalculadoraTeste {
 
                     espacarTexto();
                     Calculadora.setResultado(Calculadora.processarOpcao(opcao, n1, n2));
-                } else {
-                    double num;
-                    System.out.println("Digite o número da operação fatorial");
-                    num = Double.parseDouble(sc.nextLine());
-                    Calculadora.setResultado(Calculadora.processarFatorial(num));
-                }
-
-                if (opcao > 0 && opcao <= 6) {
                     System.out.println("O resultado é: " + Calculadora.getResultado());
+                } else {
+
+                    switch (opcao) {
+                        case 6:
+                            double num;
+                            System.out.println("Digite o número da operação fatorial");
+                            num = Double.parseDouble(sc.nextLine());
+                            Calculadora.setResultado(Calculadora.processarFatorial(num));
+                            System.out.println("O resultado é: " + Calculadora.getResultado());
+                            break;
+                        case 0:
+                            System.out.println("Finalizando sistema");
+                            break;
+                        default:
+                            System.out.println("ERRO: DIGITE UM VALOR VÁLIDO DO MENU");
+                    }
                 }
 
             } catch (NumberFormatException e) {
                 espacarTexto();
                 System.out.println("ERRO: DIGITE UM VALOR VÁLIDO");
-                espacarTexto();
             }
 
 
@@ -55,6 +62,7 @@ public class CalculadoraTeste {
         System.out.println("Digite 4 para dividir");
         System.out.println("Digite 5 para elevar potência");
         System.out.println("Digite 6 para calcular fatorial");
+        System.out.println("Digite 0 para sair do sistema");
         System.out.println("---------------------------------");
     }
 

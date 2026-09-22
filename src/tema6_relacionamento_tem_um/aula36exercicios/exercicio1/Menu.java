@@ -38,8 +38,9 @@ public class Menu {
     public static void mostrarMenu() {
         System.out.println("          MENU PRINCIPAL");
         System.out.println("------------------------------------");
-        System.out.println("Digite 1 para criar 3 contatos (Se ja existem, entao substitui os outros)");
+        System.out.println("Digite 1 para criar 3 contatos");
         System.out.println("Digite 2 para mostrar contatos");
+        System.out.println("Digite 0 para sair");
         System.out.println("------------------------------------");
     }
 
@@ -65,9 +66,11 @@ public class Menu {
                 List<Contato> contatos = agenda.getContatos();
 
                 if (contatos != null && !contatos.isEmpty()) {
+                    System.out.println("NOME DA AGENDA: "+agenda.getNome());
+                    System.out.println();
                     for (Contato c : contatos) {
                         System.out.println(c);
-                        espacarLinhas();
+                        System.out.println();
                     }
                 } else {
                     System.out.println("Lista de contatos vazia");

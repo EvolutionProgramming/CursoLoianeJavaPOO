@@ -23,8 +23,12 @@ public class Menu {
 
             mostrarMenu();
             espacarLinhas();
-            //adicionar try catch
-            comando = Integer.parseInt(sc.nextLine());
+            try {
+                comando = Integer.parseInt(sc.nextLine());
+            }catch (NumberFormatException e) {
+                System.out.println("ERRO: DIGITE UM NÚMERO VÁLIDO");
+                espacarLinhas();
+            }
 
             processarOpcao(comando, sc, agenda);
 
@@ -48,7 +52,7 @@ public class Menu {
                     System.out.println("Digite o nome do " + cont + "° contato: ");
                     String nomeContato = sc.nextLine();
                     System.out.println("Digite o telefone do contato: ");
-                    //adicionar try catch
+
                     String telefoneContato = sc.nextLine();
                     System.out.println("Digite o email do contato: ");
                     String emailContato = sc.nextLine();
@@ -71,11 +75,6 @@ public class Menu {
                 }
                 break;
             case 0:
-                break;
-
-            default:
-                System.out.println("Digite uma opção válida!!!");
-                espacarLinhas();
                 break;
         }
 

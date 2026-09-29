@@ -7,9 +7,18 @@ public class Curso {
     private LocalTime horarioInicio;
     private LocalTime horarioFim;
 
+    public void criarCurso(String nome, LocalTime horarioInicial, LocalTime horarioFinal) {
+        setNome(nome);
+        setHorarioInicio(horarioInicial);
+        setHorarioFim(horarioFinal);
+    }
 
     public String getNome() {
         return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public LocalTime getHorarioInicio() {

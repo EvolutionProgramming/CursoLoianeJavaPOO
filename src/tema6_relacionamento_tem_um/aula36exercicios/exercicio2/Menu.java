@@ -16,8 +16,8 @@ public class Menu {
         String horarioFinal = sc.nextLine();
         LocalTime horarioFim = LocalTime.parse(horarioFinal);
 
-
-
+        Curso novoCurso = new Curso();
+        novoCurso.criarCurso(nome,horarioInicio,horarioFim);
 
     }
 }
